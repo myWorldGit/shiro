@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>邻居邦-后台管理页面</title>
+	<link rel="shortcut icon" href="image/icon.png"  type="image/x-icon" >
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="iconfont/iconfont.css">
+	<link rel="stylesheet" type="text/css" href="css/user.css">
+</head>
+<body>
+	<div class="container-fluid mypage-wrap">
+		<div class="row">
+			<div class="col-md-2 my-aside-wrap" >
+			    <div class="my-aside-logo">
+					<div class="my-aside-info">
+						<img src="image/photo.jpeg" class="my-user-photo">
+						<span class="my-user-username">李会计家装店</span>
+						<p class="my-user-level">
+							<span>LV&nbsp;</span><span>1<span>
+						</p>
+						
+					</div>
+				</div>
+				<div class="my-aside-nav"  >
+					<ul class="my-aside-nav-menu">
+						<li class="my-aside-nav-item">
+							<a href="ad.html"><span class="iconfont icon icon-ad"></span>广告管理</a>
+						</li>
+						<li class="my-aside-nav-item my-aside-nav-active">
+							<a href="user.html"><span class="iconfont icon icon-yonghu"></span>用户管理</a>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="worktype.html"><span class="iconfont icon icon-gongzhong"></span>工种管理</a>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="master.html"><span class="iconfont icon icon--"></span>师傅等级管理</a>
+						</li>
+						<li class="my-aside-nav-item my-nav-dropdowm">
+							<a href="#"><span class="iconfont icon icon-shangpin"></span>商家管理<span class="iconfont icon icon-zuo"></span></a>
+							<ul class="my-dropdowm-menu hidden">
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+							</ul>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="#"><span class="iconfont icon icon-qiyerenyuanguanli"></span>企业管理</a>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="#"><span class="iconfont icon icon-industry_certification"></span>行业管理</a>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="#"><span class="iconfont icon icon-shangwu"></span>商会管理</a>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="#"><span class="iconfont icon icon-baoxian"></span>保险管理</a>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="#"><span class="iconfont icon icon-tianchongxing-"></span>系统通知</a>
+						</li>
+						<li class="my-aside-nav-item my-nav-dropdowm">
+							<a href="#"><span class="iconfont icon icon-shoppingcart"></span>商城管理<span class="iconfont icon icon-zuo"></span></a>
+							<ul class="my-dropdowm-menu hidden">
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+							</ul>
+						</li>
+						<li class="my-aside-nav-item my-nav-dropdowm">
+							<a href="#"><span class="iconfont icon icon-fl-gongcheng"></span>工程管理<span class="iconfont icon icon-zuo"></span></a>
+							<ul class="my-dropdowm-menu hidden">
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+							</ul>
+						</li>
+						<li class="my-aside-nav-item my-nav-dropdowm">
+							<a href="#"><span class="iconfont icon icon-shouyiyulishuai"></span>积分管理<span class="iconfont icon icon-zuo"></span></a>
+							<ul class="my-dropdowm-menu hidden">
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+								<li ><a href="#">下拉</a></li>
+							</ul>
+						</li>
+						<li class="my-aside-nav-item">
+							<a href="#"><span class="iconfont icon icon-tiku"></span>题库管理</a>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-10 my-content-wrap" id="application">
+				<div class="header-wrap">
+					<div class="row">
+						<div class="col-md-9 my-header-left" >
+							<img src="image/logo.png"><span>邻居邦商家后台管理</span>
+						</div>
+						<div class="col-md-3 my-header-right" >
+							<a href="#"><span class="icon iconfont icon-tianchongxing-"></span></a>
+							<span>|</span>
+							<a href="#"><span class="my-letter icon iconfont icon-renzhengyouxiang" ></span></a>
+							<span>|</span>
+							<a href="#" @click.prevent='logout'><span  class="icon iconfont icon-084tuichu">退出</span></a>
+						</div>
+					</div>
+				</div>
+
+					<div class="container-fluid" >
+					<div class="slection-wrap" >
+						<div class="container-fluid">
+							<div class="row my-form-grounp" > 
+								<dir class="col-md-12">
+									<form class="search-form" >
+										<input type="text" name="keyword"  placeholder="请输入关键字" 
+										@keydown.enter.prevent='formsubmit' v-model='keyword'
+										 class="my-form-control"><a href="#" @click.prevent='formsubmit'
+										  class="my-btn-search"><span class="icon iconfont icon-chazhao"></span></a>
+									</form>
+								</dir> 	
+							</div>
+							<div class="my-table-wrap">
+							<table class="table table-">
+								<thead>
+									<tr>
+										<td>姓名</td>
+										<td>手机号</td>
+										<td>最高等级</td>
+										<td>是否认证</td>
+										<td>注册时间</td>
+										<td>操作</td>
+									</tr>
+								</thead>
+								<tbody v-for='(user,index) in users' v-if='index<10'>
+									<tr>
+										<td v-text='user.name'></td>
+										<td v-text='user.phone'></td>
+										<td v-text='user.levelId'></td>
+										<td> 
+											<span class="Anthentication-flag" v-if='user.isAnthentication==1'>&nbsp;已认证</span>
+											<span v-else class="unAnthentication-flag">&nbsp;未认证</span>
+										</td>
+										<td v-text='user.createTime'></td>
+										<td>
+											<a href="#" @click.prevent='modify(index)'>修改</a> 
+										</td>
+									</tr>
+												
+								</table>								
+
+							</div>
+							<modal-modify :params='subProp' @close-box='closebox'></modal-modify>
+							
+							
+						</div>
+						<div class="my-button-group">
+								<div class="bypage-btn">
+									<a href="#">上一页</a><a class="bypage-active" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a>
+									<span>...</span>
+									<a href="#">最大</a><a href="#">下一页</a>
+								</div>
+						</div>
+						<div class="my-foot-wrap">
+							
+						</div>
+ 
+					</div>
+				</div>
+
+
+			</div>
+		</div>		
+		<template id="modal-modify">
+			<div class="my-modal-mask" v-show="params.isshow">
+				<div class="my-modal-wrap">
+					<div class="my-modal-title">
+						修改用户信息  <a href="#" @click.prevent='close'>×</a>
+					</div>
+					<div class="my-modal-content">						
+						<form class="form-horizontal" >
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >用户名</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.password">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >手机号</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.phone">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >会员等级</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.levelId">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >注册时间</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.createTime">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XX</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" placeholder="XX">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XX</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" placeholder="XX">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XXX</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" placeholder="XXX">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XXXX</label>
+								<div class="col-sm-5 col-md-pull-1">
+								<input type="text" disabled class="form-control input-sm" placeholder="XXX">
+								</div>
+							</div>
+						</form>
+						<div class="user-backshow-photo">
+							<img src="image/photo.jpeg">
+							<div class="user-auth-flag" v-if='params.user.isAnthentication==1'></div>
+							<div class="user-noauth-flag" v-else='params.user.isAnthentication==0'></div>
+						</div>
+					</div>		
+
+					<div class="my-modal-btn-group">
+						<button @click='modify' class="btn btn-info">修改</button>
+						<button @click='close' class="btn btn-defalut">取消</button>
+					</div>	
+				</div>
+			</div>
+		</template>
+
+
+	</div>
+
+</body>
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/myaside.js"></script>
+	<script type="text/javascript" src="js/Vue.v2.5.17.js"></script>
+	<script type="text/javascript" src="js/axios.min.js"></script>
+	<script type="text/javascript" src="js/user.js"></script>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
