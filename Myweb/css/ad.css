@@ -1,0 +1,12 @@
+table.table >tbody >tr>td,
+table.table >thead >tr>th {
+    text-align: center;
+}
+
+.serch-form {
+   padding: 40px;
+}
+.serch-iocn-size {
+    padding: 0 10px;
+    font-size: 14px;
+}

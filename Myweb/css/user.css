@@ -2,6 +2,10 @@
 	padding: 10px 0;
 }
 
+table.table >tbody >tr>td,
+table.table >thead >tr>th {
+	text-align: center;
+}
 .my-form-control {
 	color:  rgb(222,181,119);
 	border: 1px solid  rgb(222,181,119);
@@ -49,19 +53,24 @@
 }
 .my-button-group >div {
 	padding: 8px 0 30px 0;
-	width: 40%;
-	margin-left: 60%;
+	width: 55%;
+	margin-left: 45%;
 }
 .my-foot-wrap {
 	height: 60px;
 	background-color: rgb(234,238,239);
 }
+a.numberbtnflag {
+	text-align: center;
+	width: 40px;
+}
+
 .bypage-btn >a{
 	display: inline-block;
 	padding: 0 10px;
 	margin: 0 2px;
 }
-.bypage-active {
+a.bypage-active {
 	background-color: rgba(0,0,0,.1);
 	border-radius: 2px;
 	color: rgb(222,181,119);
@@ -97,9 +106,9 @@
 	color: #fff;
 	border-radius: 4px;
 	top: 6px;
-	left: 5px;
+	left: 38%;
 	padding: 2px 10px;
-	background-color: rgb(58,139,195);
+	background-color: #5cb85c;
 	display: inline-block;
 	position: absolute;
 }
@@ -164,8 +173,8 @@
 	box-shadow: 10px 10px 5px #999;
 	border: 1px solid #999;
 	position: absolute;
-	width: 320px;
-	height: 340px;
+	width: 300px;
+	height: 310px;
 	top: 20px;
 	left: 20px;
 }
@@ -196,4 +205,31 @@
 }
 .unAnthentication-flag {
 	color: #888;
+}
+
+#tops-info {
+	background-color: #eee;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	display: none
+}
+.tops-content {
+	font-weight: lighter;
+	color: rgb(38, 36, 18);
+	width: 35%;
+	margin: 0 auto;
+	height: 40px;
+	font-size: 20px;
+	line-height: 45px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.toPage-input {
+	width: 30px;
+}
+.redBorder {
+	border: 1px solid red;
 }

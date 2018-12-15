@@ -135,26 +135,29 @@
 							<div class="my-table-wrap">
 							<table class="table table-">
 								<thead>
-									<tr>
-										<td>姓名</td>
-										<td>手机号</td>
-										<td>最高等级</td>
-										<td>是否认证</td>
-										<td>注册时间</td>
-										<td>操作</td>
+									<tr class="success">
+										<th class="col-md-2">身份</th>
+										<th class="col-md-2">手机号</th>
+										<th class="col-md-2">最高等级</th>
+										<th class="col-md-2">是否认证</th>
+										<th class="col-md-2">注册时间</th>
+										<th class="col-md-2">操作</th>
 									</tr>
 								</thead>
 								<tbody v-for='(user,index) in users' v-if='index<10'>
 									<tr>
-										<td v-text='user.name'></td>
-										<td v-text='user.phone'></td>
-										<td v-text='user.levelId'></td>
-										<td> 
-											<span class="Anthentication-flag" v-if='user.isAnthentication==1'>&nbsp;已认证</span>
-											<span v-else class="unAnthentication-flag">&nbsp;未认证</span>
+										<td class="col-md-2">
+											<span v-if='user.roleId==1'>公司</span>
+											<span v-if='user.roleId==0'>个人</span>
 										</td>
-										<td v-text='user.createTime'></td>
-										<td>
+										<td class="col-md-2" v-text='user.phone'></td>
+										<td class="col-md-2">Lv&nbsp;<span v-text='user.levelId'></span></td>
+										<td class="col-md-2">
+											<span class="Anthentication-flag" v-if='user.identify==1'>&nbsp;已认证</span>
+											<span v-if='user.identify==0' class="unAnthentication-flag">&nbsp;未认证</span>
+										</td>
+										<td class="col-md-2"  >{{user.createTime | timeform }}</td>
+										<td class="col-md-2">
 											<a href="#" @click.prevent='modify(index)'>修改</a> 
 										</td>
 									</tr>
@@ -163,14 +166,21 @@
 
 							</div>
 							<modal-modify :params='subProp' @close-box='closebox'></modal-modify>
-							
-							
+
 						</div>
-						<div class="my-button-group">
-								<div class="bypage-btn">
-									<a href="#">上一页</a><a class="bypage-active" href="#">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a>
-									<span>...</span>
-									<a href="#">最大</a><a href="#">下一页</a>
+						<div class="my-button-group" >
+								<div class="bypage-btn" v-if="total>1">
+									<a href="#" @click.prevent="firstBtn">首页</a>
+									<a href="#" @click.prevent="priorBtn">上一页</a>
+									<span v-show="rangMin!=1">...</span>
+									<a href="#" :class="{'bypage-active':!index}" @click.prevent="numberBtn(p)"  v-for="(p,index) in total"
+									v-show="p<=rangMax && p>=rangMin"   v-text="p" class="numberbtnflag"></a>
+									<span v-show="rangMax<total">...</span>
+									<a href="#" v-show="rangMax<total"  v-text="total" @click.prevent="maxBtn"></a>
+									<a @click.prevent="nextBtn"  href="#">下一页</a>
+
+									<a @click.prevent="toPageBtn"  href="#">跳转到</a><input @keydown.enter="toPageBtn" v-model="toPage" class="toPage-input" type="text">
+
 								</div>
 						</div>
 						<div class="my-foot-wrap">
@@ -192,9 +202,13 @@
 					<div class="my-modal-content">						
 						<form class="form-horizontal" >
 							<div class="form-group">
-								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >用户名</label>
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >角色</label>
 								<div class="col-sm-5 col-md-pull-1">
-								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.password">
+									<select @change="roleChange" class="form-control" :value="params.user.roleId">
+										<option value="0">个人</option>
+										<option value="1">公司</option>
+									</select>
+
 								</div>
 							</div>
 							<div class="form-group">
@@ -206,55 +220,54 @@
 							<div class="form-group">
 								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >会员等级</label>
 								<div class="col-sm-5 col-md-pull-1">
-								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.levelId">
+								<input type="text" disabled class="form-control input-sm" :placeholder="'lv '+params.user.levelId">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >注册时间</label>
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >可用积分</label>
 								<div class="col-sm-5 col-md-pull-1">
-								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.createTime">
+								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.credit">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XX</label>
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >商城积分</label>
 								<div class="col-sm-5 col-md-pull-1">
-								<input type="text" disabled class="form-control input-sm" placeholder="XX">
+								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.coupon">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XX</label>
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >冻结积分</label>
 								<div class="col-sm-5 col-md-pull-1">
-								<input type="text" disabled class="form-control input-sm" placeholder="XX">
+								<input type="text" disabled class="form-control input-sm" :placeholder="params.user.freezeCredit">
 								</div>
 							</div>
+
 							<div class="form-group">
-								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XXX</label>
+								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" ></label>
 								<div class="col-sm-5 col-md-pull-1">
-								<input type="text" disabled class="form-control input-sm" placeholder="XXX">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" >XXXX</label>
-								<div class="col-sm-5 col-md-pull-1">
-								<input type="text" disabled class="form-control input-sm" placeholder="XXX">
+									<button class="btn btn-default btn-lg">查看推荐人</button>
+									<button class="btn btn-default btn-lg">查看商会</button>
+
 								</div>
 							</div>
 						</form>
 						<div class="user-backshow-photo">
 							<img src="image/photo.jpeg">
-							<div class="user-auth-flag" v-if='params.user.isAnthentication==1'></div>
-							<div class="user-noauth-flag" v-else='params.user.isAnthentication==0'></div>
+							<div class="user-auth-flag" v-if='params.user.identify==1'></div>
+							<div class="user-noauth-flag" v-else='params.user.identify==0'></div>
 						</div>
 					</div>		
 
 					<div class="my-modal-btn-group">
-						<button @click='modify' class="btn btn-info">修改</button>
+						<button id="mofidy-btn" disabled @click='modify(params.user.id)' class="btn btn-success">修改</button>
 						<button @click='close' class="btn btn-defalut">取消</button>
 					</div>	
 				</div>
 			</div>
 		</template>
-
+		<div id="tops-info">
+			<div class="tops-content"></div>
+		</div>
 
 	</div>
 

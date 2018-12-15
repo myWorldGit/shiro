@@ -6,7 +6,7 @@
 a {
 	text-decoration: none;
 }
-a:focus {
+a:focus ,a:active{
 	text-decoration: none;
 }
 
@@ -158,7 +158,7 @@ span.icon-zuo {
 
 }
 .my-header-right >a {
-	margin: 25px 0;
+	margin: 29.3px 0;
 	color: #666;
 	display: inline-block;
 }

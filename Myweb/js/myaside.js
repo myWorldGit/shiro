@@ -4,4 +4,5 @@ $(function() {
 		$(this).find('.icon-xiala2').add($(this).find('.icon-zuo')).toggleClass('icon-xiala2 icon-zuo')
 		return false;
 	})
+
 })
