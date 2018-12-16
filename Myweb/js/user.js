@@ -58,6 +58,12 @@ $(function(){
 					e.target.style.borderColor='#66afe9';
 					e.target.style.color='#555';
 				}
+			},
+			findRecomendPerson:function(id){   //查询推荐人信息
+				alert(id)
+			},
+			findBusinessGroup:function(id){  //查询商会信息
+				alert(id)
 			}
 		},
 		props:['params']
@@ -86,24 +92,35 @@ $(function(){
 				if(this.currentPage==1){
 					return;
 				}
-				--this.currentPage;
+				this.numberBtn(	this.currentPage-1);
 			},
 			nextBtn:function(){
 				if(this.currentPage==this.total){  //最大页面
 					return;
 				}
-				++this.currentPage;
+ 				this.numberBtn(	1+this.currentPage);
 			},
 			numberBtn:function (p) {
 				if(this.currentPage==p){
 					return;
 				}
+				var params = new URLSearchParams();
+				params.append("currPage",p);
+				params.append("pageSize","10");
+				axios.post('/admin/user/findAll',params).then((response) => {
+				this.users=response.data.users;
 				this.currentPage=p;
-			},
+				this.total=Math.ceil(response.data.count/10);
+				}).catch(function (error) {
+					topsinfo(error,"error")
+					console.log(error);
+				});
+ 			},
 			firstBtn:function(){
 				if(this.currentPage==1){
 					return;
 				}
+				this.numberBtn(1)
 				this.currentPage=1;
 				this.rangMin=1;
 				this.rangMax=5;
@@ -112,6 +129,8 @@ $(function(){
 				if(this.currentPage==this.total){
 					return;
 				}
+				this.numberBtn(this.total)
+
 				this.currentPage=this.total;
 				this.rangMin=this.total-5;
 				this.rangMax=this.total;
@@ -123,11 +142,12 @@ $(function(){
 					return;
 				}
 				$(".toPage-input").removeClass("redBorder")
+				//发送
+				this.numberBtn(this.toPage);
+				this.toPage=""
 
-				//做跳转
 
 
-				this.toPage='';
 			}
 
 
@@ -182,7 +202,7 @@ $(function(){
 			params.append("pageSize","10");
 			axios.post('/admin/user/findAll',params).then((response) => {
 				this.users=response.data.users;
-				this.total=16//Math.ceil(response.data.count/10);
+				this.total=Math.ceil(response.data.count/10);
 			}).catch(function (error) {
 			    console.log(error);
 			});

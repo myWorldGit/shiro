@@ -52,9 +52,9 @@ table.table >thead >tr>th {
 .my-button-group {
 }
 .my-button-group >div {
-	padding: 8px 0 30px 0;
-	width: 55%;
-	margin-left: 45%;
+	padding: 6px 0 30px 0;
+	width: 46%;
+	margin-left: 54%;
 }
 .my-foot-wrap {
 	height: 60px;
@@ -67,7 +67,7 @@ a.numberbtnflag {
 
 .bypage-btn >a{
 	display: inline-block;
-	padding: 0 10px;
+	padding: 0 6px;
 	margin: 0 2px;
 }
 a.bypage-active {
@@ -95,6 +95,7 @@ a.bypage-active {
 	background-color: rgb(234,238,239);
 }
 .my-table-wrap {
+	height: 530px;   /****表格定长***/
 	padding: 60px 20px;
 	background-color: rgb(227,227,227);
 }
@@ -141,6 +142,8 @@ a.bypage-active {
 	color: red;
 }
 .my-modal-title {
+	cursor: move;
+
 	font-weight: bolder;
 	font-size: 20px;
 	padding: 5px 0;

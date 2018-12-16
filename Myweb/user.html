@@ -245,8 +245,12 @@
 							<div class="form-group">
 								<label class="col-sm-2 col-md-offset-5 col-md-pull-1  control-label" ></label>
 								<div class="col-sm-5 col-md-pull-1">
-									<button class="btn btn-default btn-lg">查看推荐人</button>
-									<button class="btn btn-default btn-lg">查看商会</button>
+								<button v-if="params.user.recommendId!=0" @click.prevent="findRecomendPerson(params.user.recommendId)" class="btn btn-default btn-lg">查看推荐人</button>
+									<button v-else disabled class="btn btn-danger btn-lg">无推荐人</button>
+
+									<button v-if="params.user.commerceId!=0" @click.prevent="findBusinessGroup(params.user.commerceId)" class="btn btn-default btn-lg">查看商会</button>
+									<button v-else disabled class="btn btn-danger btn-lg">未加入商会</button>
+
 
 								</div>
 							</div>
