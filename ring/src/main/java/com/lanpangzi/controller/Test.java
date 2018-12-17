@@ -2,12 +2,12 @@ package com.lanpangzi.controller;
 
 import com.lanpangzi.mapper.user.UserDao;
 import com.lanpangzi.utils.myutils.MyJsonForm;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class Test {
@@ -23,9 +23,20 @@ public class Test {
         return form;
     }
 
-    @GetMapping("getinfo")
-    public String getinfo(){
-        return "first";
+    @PostMapping("loginauth")
+    public String loginAuth(String username,String password){
+        System.out.println("jiogn");
+        Subject subject = SecurityUtils.getSubject();
+        UsernamePasswordToken token =new UsernamePasswordToken(username,password);
+        try{
+            subject.login(token);
+            System.out.println("first");
+            return "first";
+        }catch (Exception e){
+            System.out.println("dasd");
+            return "authsuccess";
+        }
+
     }
 
 }
