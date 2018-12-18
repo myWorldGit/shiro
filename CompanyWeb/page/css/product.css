@@ -1,0 +1,87 @@
+.section-wrap {
+	padding-top: 100px;
+}
+.description-wrap {
+	display: flex;
+}
+
+.aside-wrap {
+	float: left;
+	flex: 1;
+}
+.prducet-content {
+	padding-left: 140px;
+	float: left;
+	flex: 5;
+}
+.aside-wrap>li:first-child >h2 {
+	padding: 10px 5px;
+	font-size: 28px;
+	font-weight: bold;
+}
+.boldcutline {
+	border-bottom: 3px solid #000;
+}
+.cutline {
+	border-bottom: 1px solid #666;
+}
+.aside-lv2 {
+	padding: 6px 15px;
+	font-size: 20px;
+	color: #666;
+}
+.aside-lv3 {
+	padding: 4px 0 4px 40px;
+	font-size: 14px;
+}
+.aside-lv3>a {
+	color: #000;
+}
+.aside-lv3>a:hover,
+.aside-lv2>a:hover  {
+	color: #19c2c8;
+}
+
+.prducet-content-items>h3 {
+	padding-top: 10px;
+	font-size: 30px;
+	font-weight: 400;
+}
+.prducet-content-items>h6 {
+	position: relative;
+	left: 500px;
+	top: -40px;
+	font-size: 12px;
+}
+.prducet-content-items {
+	width: 700px;
+	height: 400px;
+	position: relative;
+}
+.prducet-content-items>img { 
+	vertical-align: top;
+	height: 300px; 
+	width: 300px;
+	position: absolute;
+	right: 0;
+}
+.prducet-content-items>p {
+	font-size: 18px;
+	padding: 33px 0 0 30px;
+	color: #19c2c8;
+	text-indent: 2em;
+	position: absolute;
+	width: 290px;
+	word-break: break-all;
+}
+.prducet-company-title {
+	padding: 15px 0;
+}
+.product-demo >div >img{
+	height: 400px;
+	width: auto;
+}
+.product-demo >div {
+	margin-left: 30px;
+	float: left;
+}

@@ -1,0 +1,53 @@
+body,html {
+	background-color: #fff;
+}
+.slection-header-title{
+	width: 80%;
+	padding-top: 40px;
+	background-image: url(../images/prosent.jpg);
+	background-repeat: no-repeat;
+	background-size: 100% 300px;
+	background-position: center;
+	height: 300px;
+	margin: 0 auto;
+}
+.slection-header-title:after {
+	clear: both;
+	visibility: hidden;
+	height: 0;
+	content: '.';
+	display: block;
+}
+.slection-header-title >h1 {
+	float: left;
+
+}
+.slection-header-title >h3 {
+	position: relative;
+	margin-top: 100px;
+	color: #19c2c8;
+	font-weight: normal;
+}
+.slection-header-guide {
+	float: right;
+}
+.slection-header-guide>* {
+	font-size: 20px;
+}
+.content-wrap {
+	margin: 0 auto;
+	width: 80%;
+}
+.content-img {
+	background-image: url(../images/prosent2.jpg);
+	background-size: 100% 330px;
+	background-repeat: no-repeat;
+	height: 330px;
+}
+.content-description {
+	line-height: 30px;
+	padding: 20px;
+	text-indent: 2em;
+	color: #666;
+	font-size: 14px;
+}
