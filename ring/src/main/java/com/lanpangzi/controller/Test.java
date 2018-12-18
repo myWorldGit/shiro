@@ -1,5 +1,6 @@
 package com.lanpangzi.controller;
 
+import com.lanpangzi.conf.shiro.OssService;
 import com.lanpangzi.mapper.user.UserDao;
 import com.lanpangzi.utils.myutils.MyJsonForm;
 import org.apache.shiro.SecurityUtils;
@@ -8,17 +9,30 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @Controller
 public class Test {
     @Autowired
     private UserDao userDao;
+    @Autowired
+    private OssService ossService;
+
 
     @ResponseBody
-    @GetMapping("test")
-    public MyJsonForm getMapper(){
+    @PostMapping("test")
+    public MyJsonForm getMapper(MultipartFile file){
         MyJsonForm form =new MyJsonForm();
-        form.addData("user","usernameinfo");
+
+        try {
+          String filename= ossService.uploadImgToOss(file);
+          String url =  ossService.getImgUrl(filename);
+          form.addData("url",url);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         form.setCodeAndMessage("1","msg");
         return form;
     }

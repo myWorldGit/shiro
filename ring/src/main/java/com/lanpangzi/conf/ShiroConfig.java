@@ -20,6 +20,7 @@ public class ShiroConfig {
         //  配置拦截的页面  设置权限等。
         filterMap.put("/login","anon");
         filterMap.put("/loginauth","anon");
+        filterMap.put("/test","anon");
         filterMap.put("/*","authc");
         //  拦截后跳转的页面
         shiroFilterFactoryBean.setLoginUrl("/login");
