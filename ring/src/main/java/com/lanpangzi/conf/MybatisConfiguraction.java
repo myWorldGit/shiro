@@ -12,6 +12,7 @@ public class MybatisConfiguraction {
             @Override
             public void customize(org.apache.ibatis.session.Configuration configuration) {
               //  configuration.setLazyLoadingEnabled(false);
+
             }
         };
     }

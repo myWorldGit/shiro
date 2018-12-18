@@ -1,6 +1,22 @@
 package com.lanpangzi.pojo;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
+    public User() {
+    }
+
+    public User(String username) {
+        this.username = username;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                '}';
+    }
+
     public String getUsername() {
         return username;
     }
