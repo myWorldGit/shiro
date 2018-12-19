@@ -1,6 +1,6 @@
 package com.lanpangzi.conf;
 
-import com.lanpangzi.conf.shiro.UserRealm;
+import com.lanpangzi.conf.service.UserRealm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
 import org.springframework.context.annotation.Bean;

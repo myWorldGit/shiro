@@ -1,6 +1,6 @@
 package com.lanpangzi.conf;
 
-import com.lanpangzi.conf.shiro.OssService;
+import com.lanpangzi.conf.service.OssService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

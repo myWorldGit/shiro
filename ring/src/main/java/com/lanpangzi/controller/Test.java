@@ -1,6 +1,6 @@
 package com.lanpangzi.controller;
 
-import com.lanpangzi.conf.shiro.OssService;
+import com.lanpangzi.conf.service.OssService;
 import com.lanpangzi.mapper.user.UserDao;
 import com.lanpangzi.utils.myutils.MyJsonForm;
 import org.apache.shiro.SecurityUtils;

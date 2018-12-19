@@ -1,4 +1,4 @@
-package com.lanpangzi.conf.shiro;
+package com.lanpangzi.conf.service;
 
 import com.alibaba.druid.util.StringUtils;
 import com.aliyun.oss.OSSClient;

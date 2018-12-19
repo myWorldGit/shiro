@@ -1,4 +1,4 @@
-package com.lanpangzi.conf.shiro;
+package com.lanpangzi.conf.service;
 
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
