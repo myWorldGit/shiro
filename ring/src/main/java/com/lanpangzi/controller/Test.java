@@ -22,17 +22,11 @@ public class Test {
 
 
     @ResponseBody
-    @PostMapping("test")
+    @GetMapping("test")
     public MyJsonForm getMapper(MultipartFile file){
         MyJsonForm form =new MyJsonForm();
 
-        try {
-          String filename= ossService.uploadImgToOss(file);
-          String url =  ossService.getImgUrl(filename);
-          form.addData("url",url);
-        }catch (IOException e){
-            e.printStackTrace();
-        }
+        form.addData("info",userDao.getUserDao(20).toString());
         form.setCodeAndMessage("1","msg");
         return form;
     }
