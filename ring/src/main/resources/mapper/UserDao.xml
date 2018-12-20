@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lanpangzi.mapper.user.UserDao">
+    <cache type="com.lanpangzi.conf.service.MybatisRedisCache"></cache>
     <select id="getUserDao" resultType="com.lanpangzi.pojo.User">
         SELECT username FROM users WHERE uid=#{uid} LIMIT 0,1
     </select>

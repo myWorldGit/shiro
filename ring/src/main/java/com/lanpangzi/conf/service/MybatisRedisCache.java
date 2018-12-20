@@ -39,20 +39,21 @@ public class MybatisRedisCache implements Cache{
 
     @Override
     public void putObject(Object key, Object value) {
-        this.getRedisTemplate().opsForValue().set(key,value,10, TimeUnit.MINUTES);
+        System.out.println(key.toString());
+        this.getRedisTemplate().opsForValue().set(key.toString(),value,1, TimeUnit.MINUTES);
         logger.info("存入缓存中");
     }
 
     @Override
     public Object getObject(Object key) {
         logger.info("获取缓存的");
-        return this.getRedisTemplate().opsForValue().get(key);
+        return this.getRedisTemplate().opsForValue().get(key.toString());
     }
 
     @Override
     public Object removeObject(Object key) {
         logger.info("移除掉了缓存的");
-        return this.getRedisTemplate().delete(key);
+        return this.getRedisTemplate().delete(key.toString());
     }
 
     @Override
